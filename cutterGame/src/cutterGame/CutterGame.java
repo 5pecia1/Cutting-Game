@@ -58,6 +58,5 @@ public class CutterGame {
 	public void start() {
 		cardLayout.show(mainFrame.getContentPane(),"game"); //¾ÆÁ÷ start ¾Æ´Ô
 		
-		
 	}
 }
