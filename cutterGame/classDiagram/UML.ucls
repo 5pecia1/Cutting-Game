@@ -19,16 +19,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="cutterGame.SmallCuttableObject" project="cutterGame" 
-    file="/cutterGame/src/cutterGame/SmallCuttableObject.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="140" x="869" y="642"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="cutterGame.Boom" project="cutterGame" file="/cutterGame/src/cutterGame/Boom.java" 
+  <class id="3" language="java" name="cutterGame.Boom" project="cutterGame" file="/cutterGame/src/cutterGame/Boom.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="81" width="87" x="1133" y="431"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -37,7 +28,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="cutterGame.CutterGame.StartButtonJPanel" project="cutterGame" 
+  <class id="4" language="java" name="cutterGame.CutterGame.StartButtonJPanel" project="cutterGame" 
     file="/cutterGame/src/cutterGame/CutterGame.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="171" width="193" x="443" y="431"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -46,7 +37,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="cutterGame.CutterDriver" project="cutterGame" 
+  <class id="5" language="java" name="cutterGame.CutterDriver" project="cutterGame" 
     file="/cutterGame/src/cutterGame/CutterDriver.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="99" width="113" x="815" y="184"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -55,16 +46,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="cutterGame.BigCuttableObject" project="cutterGame" 
-    file="/cutterGame/src/cutterGame/BigCuttableObject.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="131" x="1049" y="642"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="cutterGame.Thrower" project="cutterGame" 
+  <class id="6" language="java" name="cutterGame.Thrower" project="cutterGame" 
     file="/cutterGame/src/cutterGame/Thrower.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="99" width="125" x="968" y="184"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -73,7 +55,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="cutterGame.Throwee" project="cutterGame" 
+  <class id="7" language="java" name="cutterGame.Throwee" project="cutterGame" 
     file="/cutterGame/src/cutterGame/Throwee.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="81" width="87" x="1133" y="184"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -82,7 +64,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="cutterGame.CuttableObject" project="cutterGame" 
+  <class id="8" language="java" name="cutterGame.CuttableObject" project="cutterGame" 
     file="/cutterGame/src/cutterGame/CuttableObject.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="99" width="134" x="959" y="431"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -91,25 +73,17 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="11">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="9"/>  
+  <generalization id="9">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="7"/>  
   </generalization>  
-  <generalization id="12">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="13">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <nesting id="14">    
+  <nesting id="10">    
     <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="TARGET" refId="4"/>  
   </nesting>  
-  <generalization id="15">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="9"/>  
+  <generalization id="11">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
