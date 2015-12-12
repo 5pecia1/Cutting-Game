@@ -1,4 +1,4 @@
-package cutterGame;
+package throwCollection;
 
 public abstract class Throwee {
 	/*

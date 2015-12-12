@@ -11,6 +11,8 @@ import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
+import throwCollection.Throwee;
+
 public class GamePanel extends JPanel{
 	private int gameWidth, gameHeight;
 	private BufferStrategy bufferStrategy;
@@ -49,7 +51,7 @@ public class GamePanel extends JPanel{
 		
 		while(true){
 			g.clearRect(0, 0, gameWidth, getHeight());
-			g.drawString("FPS: " + Math.random()*100, 0, 15);//change score
+			g.drawString("FPS: " + Math.random()*100, 0, 15);//be changed score
 			
 			for (Throwee throwee : throweeList) {
 				int x1 = (int)throwee.x;
@@ -71,6 +73,7 @@ public class GamePanel extends JPanel{
 		}
 		
 	}
+	
 	private Runnable taskSetkRunnable(){
 		
 		return ()->{
