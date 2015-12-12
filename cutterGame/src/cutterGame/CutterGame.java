@@ -1,10 +1,6 @@
 package cutterGame;
 
-import java.awt.Canvas;
 import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.image.BufferStrategy;
-import java.util.LinkedList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

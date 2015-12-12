@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="cutterGame.CutterGame" project="cutterGame" 
     file="/cutterGame/src/cutterGame/CutterGame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="99" x="443" y="184"/>    
+    <position height="236" width="192" x="143" y="227"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="cutterGame.GamePanel" project="cutterGame" 
     file="/cutterGame/src/cutterGame/GamePanel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="193" x="582" y="184"/>    
+    <position height="296" width="393" x="143" y="503"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,70 +21,73 @@
   </class>  
   <class id="3" language="java" name="cutterGame.Boom" project="cutterGame" file="/cutterGame/src/cutterGame/Boom.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="87" x="1133" y="431"/>    
+    <position height="96" width="123" x="143" y="1055"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="cutterGame.CutterGame.StartButtonJPanel" project="cutterGame" 
-    file="/cutterGame/src/cutterGame/CutterGame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="193" x="443" y="431"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="cutterGame.CutterDriver" project="cutterGame" 
+  <class id="4" language="java" name="cutterGame.CutterDriver" project="cutterGame" 
     file="/cutterGame/src/cutterGame/CutterDriver.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="815" y="184"/>    
+    <position height="116" width="152" x="375" y="227"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="cutterGame.Thrower" project="cutterGame" 
+  <class id="5" language="java" name="cutterGame.Thrower" project="cutterGame" 
     file="/cutterGame/src/cutterGame/Thrower.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="125" x="968" y="184"/>    
+    <position height="116" width="164" x="567" y="227"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="cutterGame.Throwee" project="cutterGame" 
+  <class id="6" language="java" name="cutterGame.Throwee" project="cutterGame" 
     file="/cutterGame/src/cutterGame/Throwee.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="87" x="1133" y="184"/>    
+    <position height="176" width="132" x="143" y="839"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="cutterGame.CuttableObject" project="cutterGame" 
+  <class id="7" language="java" name="cutterGame.CuttableObject" project="cutterGame" 
     file="/cutterGame/src/cutterGame/CuttableObject.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="134" x="959" y="431"/>    
+    <position height="96" width="175" x="306" y="1055"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="9">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <nesting id="10">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="4"/>  
-  </nesting>  
+  <association id="8">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="9" name="throweeList"/>      
+      <multiplicity id="10" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <generalization id="11">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="7"/>  
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
   </generalization>  
+  <generalization id="12">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="13">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="14" name="gamePanel"/>      
+      <multiplicity id="15" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
