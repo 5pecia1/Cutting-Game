@@ -20,6 +20,7 @@ public class GamePanel extends JPanel{
 	private BufferStrategy bufferStrategy;
 	private LinkedList<Throwee> throweeList;
 	private Thread physicsCalculation;
+	private Thread drawGraphics;
 	private Canvas canvas;
 	private int mX, mY;
 	private Thrower thrower;
@@ -53,6 +54,10 @@ public class GamePanel extends JPanel{
 		
 		canvas.addMouseMotionListener(taskSetMouseMotionListener());//test code
 		
+		drawGraphics = new Thread(drawGraphics(g));
+		
+	}
+	private synchronized Runnable drawGraphics(Graphics2D g) {
 		while(true){//draw Throwee
 			g.clearRect(0, 0,CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT);
 			g.drawString("FPS: " + Math.random()*100, 0, 15);//be changed score
@@ -61,9 +66,8 @@ public class GamePanel extends JPanel{
 			throweeRepeatDraw(g);
 			if(!bufferStrategy.contentsLost()) bufferStrategy.show();
 		}
-		
 	}
-	private synchronized void throweeRepeatDraw(Graphics2D g){
+	private void throweeRepeatDraw(Graphics2D g){
 		for (Throwee throwee : throweeList) {
 			int x1 = (int)throwee.getX();
 			int y1 = (int)throwee.getY();

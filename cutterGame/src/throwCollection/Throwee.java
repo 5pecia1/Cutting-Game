@@ -21,7 +21,6 @@ public abstract class Throwee {
 	public void changeLocation(){
 		int width = (int)x;
 		x = (int)(Math.random() * (width - diameter)); // 객체가 생겨날 위치는 0부터 (게임가로 - 지름) 사이
-		y = y;//객체가 생겨날 위치는 게임 하단 안보이는 부분부터.
 		
 		if(x < width / 2){//왼쪽에서 생기면 오른쪽으로 움직임
 			setVx(firstVx);
