@@ -12,6 +12,7 @@ import java.util.LinkedList;
 import javax.swing.JPanel;
 
 import throwCollection.Throwee;
+import throwCollection.Thrower;
 
 public class GamePanel extends JPanel{
 	private int gameWidth, gameHeight;
@@ -20,6 +21,7 @@ public class GamePanel extends JPanel{
 	private Thread physicsCalculation;
 	private Canvas canvas;
 	private int mX, mY;
+	private Thrower thrower;
 	
 	public GamePanel(int gameWidth, int gameHeight){
 		mX = 0;
@@ -41,21 +43,25 @@ public class GamePanel extends JPanel{
 		
 		physicsCalculation = new Thread(taskSetkRunnable());
 		physicsCalculation.start();
+		thrower = new Thrower(Thrower.EASY, throweeList);
 		
+		drawImage();
+	}
+	
+	private void drawImage(){
 		Graphics2D g = (Graphics2D)bufferStrategy.getDrawGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
 		canvas.addMouseMotionListener(taskSetMouseMotionListener());//test code
-		Throwee throw1 = new Throwee(10,10){}; //test code
-		throweeList.add(throw1);
+		thrower.run();
 		
-		while(true){
+		while(true){//draw Throwee
 			g.clearRect(0, 0, gameWidth, getHeight());
 			g.drawString("FPS: " + Math.random()*100, 0, 15);//be changed score
 			
 			for (Throwee throwee : throweeList) {
-				int x1 = (int)throwee.x;
-				int y1 = (int)throwee.y;
+				int x1 = (int)throwee.getX();
+				int y1 = (int)throwee.getY();
 				int x2 = x1 + 15;
 				int y2 = y1 + 15;
 				
@@ -63,7 +69,7 @@ public class GamePanel extends JPanel{
 					throweeList.remove(throwee);
 					break;
 				}
-					
+				
 				g.fillOval(x1, y1, 15, 15); //test code
 				System.out.println("x1 : " + x1 + " y1 : " + y1);
 				System.out.println("mX : " + mX + " mY : " + mY);
@@ -77,30 +83,27 @@ public class GamePanel extends JPanel{
 	private Runnable taskSetkRunnable(){
 		
 		return ()->{
-			/*
-			 * test code
-			 * */
-			while(true){
+			while(true){//move Throwee location
 				for (Throwee throwee : throweeList) {
-					throwee.Vx -= throwee.Vx * 0.0003;
-					throwee.Vy -= throwee.Vy * 0.0003;
+					throwee.setVx(throwee.getVx() - throwee.getVx() * 0.0003);
+					throwee.setVy(throwee.getVy() - throwee.getVy() * 0.0003);
 					
-					throwee.Vy += 0.001d;
-					throwee.y += throwee.Vy;
+					throwee.setVy(throwee.getVy() + 0.001d);
+					throwee.setY(throwee.getY() + throwee.getVy());
 					
-					throwee.x += throwee.Vx;
+					throwee.setX(throwee.getX() + throwee.getVx());
 					
-					if(throwee.x < 0){
-						throwee.x = 0+15;
-						throwee.Vx *= -0.8;
+					if(throwee.getX() < 0){
+						throwee.setX(0+15);
+						throwee.setVx(throwee.getVx() * -0.8);
 					}
-					if(throwee.x + 15 > gameWidth){
-						throwee.x = gameWidth - 15;
-						throwee.Vx *= -0.8;
+					if(throwee.getX() + 15 > gameWidth){
+						throwee.setX(gameWidth - 15);
+						throwee.setVx(throwee.getVx() * -0.8);
 					}
-					if(throwee.y + 15 > gameHeight){
-						throwee.y = gameHeight -15;
-						throwee.Vy *= -0.8;
+					if(throwee.getY() + 15 > gameHeight){
+						throwee.setY(gameHeight -15);
+						throwee.setVy(throwee.getVy() * -0.8);
 					}
 				}
 				

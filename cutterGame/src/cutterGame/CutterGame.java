@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class CutterGame {
-	private final int gameWidth = 500, gameHeight = 350;
+	public static final int GAMEWIDTH = 500, GAMEHEIGHT = 350;
 	
 	private JFrame mainFrame;
 	private CardLayout cardLayout ;
@@ -18,10 +18,10 @@ public class CutterGame {
 	public CutterGame(){
 		cardLayout = new CardLayout();
 		mainFrame= new JFrame("CutterGame");
-		mainFrame.setLayout(cardLayout);
+		mainFrame.setLayout(cardLayout);//게임을 시작, 게임, 끝 세 부분으로 나눈다.
 		
 		startPanel = new JPanel();//sung bin
-		gamePanel = new GamePanel(gameWidth, gameHeight);
+		gamePanel = new GamePanel(GAMEWIDTH, GAMEHEIGHT);
 		endPanel = new JPanel(); // wait...
 		
 //		startPanel.add
