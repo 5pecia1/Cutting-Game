@@ -20,7 +20,8 @@ public class Thrower {
 		this.seed = seed;
 		this.throweeList = throweeList;
 		cuttableList = new ArrayList<>();
-		cuttableList.add(new BigCuttable(CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT));
+		
+		cuttableList.add(new BigCuttable(CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT));//객체 추가
 		cuttableList.add(new SmallCuttable(CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT));
 		
 		numberOfThrowee = cuttableList.size() * 2;//폭탄은 자를 수 있는것의 *2만큼 던진다.

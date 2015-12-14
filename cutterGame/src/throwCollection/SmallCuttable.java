@@ -2,9 +2,10 @@ package throwCollection;
 
 public class SmallCuttable extends CuttableObject{
 	private final static int diameter = 15;
+	private final static int score = 50;
 	
 	public SmallCuttable(int x, int y) {
-		super(x, y, diameter);
+		super(x, y, diameter, score);
 	}
 
 	@Override

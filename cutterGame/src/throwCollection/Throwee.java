@@ -1,7 +1,7 @@
 package throwCollection;
 
 public abstract class Throwee {
-	private final double firstVx = 0.2, firstVy = 0.8;
+	private final double firstVx = 0.2, firstVy = -0.8;
 	private double x;
 	private double y;
 	
@@ -9,12 +9,13 @@ public abstract class Throwee {
 	private double Vy;//y가속도
 	
 	private int diameter;
+	private int score;
 	
-	public Throwee(int x, int y, int diameter){
+	public Throwee(int x, int y, int diameter, int score){
 		this.setX(x);
 		this.setY(y);
 		this.diameter = diameter;
-		
+		this.score = score;
 		changeLocation();
 	}
 	
@@ -28,7 +29,7 @@ public abstract class Throwee {
 		else {//오른쪽에서 생기면 왼쪽으로 움직임
 			setVx(-firstVx);
 		}
-		setVy(-firstVy);
+		setVy(firstVy);
 		
 	}
 
@@ -66,6 +67,10 @@ public abstract class Throwee {
 
 	public int getDiameter() {
 		return diameter;
+	}
+
+	public int getScore() {
+		return score;
 	}
 	
 	

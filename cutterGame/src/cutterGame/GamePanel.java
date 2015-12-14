@@ -23,6 +23,7 @@ public class GamePanel extends JPanel{
 	private Thread drawGraphics;
 	private Canvas canvas;
 	private int mX, mY;
+	private int score = 0;
 	private Thrower thrower;
 	
 	public GamePanel(){
@@ -65,6 +66,7 @@ public class GamePanel extends JPanel{
 			int y2 = y1 + throwee.getDiameter();
 			
 			if(x1 < mX && x2 > mX && y1 < mY && y2 > mY){
+				score += throwee.getScore();
 				throweeList.remove(throwee);
 				break;
 			}
@@ -88,7 +90,7 @@ public class GamePanel extends JPanel{
 	private Runnable drawGraphics(Graphics2D g) {
 		while(true){//draw Throwee
 			g.clearRect(0, 0,CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT);
-			g.drawString("FPS: " + Math.random()*100, 0, 15);//be changed score
+			g.drawString("SCORE : " + score, 0, 15);//be changed score
 			
 			thrower.run();
 			foreachList(g);
