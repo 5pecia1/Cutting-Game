@@ -57,26 +57,41 @@ public class GamePanel extends JPanel{
 		drawGraphics = new Thread(drawGraphics(g));
 		
 	}
-	private synchronized Runnable drawGraphics(Graphics2D g) {
+	private synchronized void foreachList(){
+		for (Throwee throwee : throweeList) {
+			int x1 = (int)throwee.getX();
+			int y1 = (int)throwee.getY();
+			int x2 = x1 + throwee.getDiameter();
+			int y2 = y1 + throwee.getDiameter();
+			
+			if(x1 < mX && x2 > mX && y1 < mY && y2 > mY){
+				throweeList.remove(throwee);
+				break;
+			}
+		}
+	}
+	private synchronized void foreachList(Graphics2D g){
+		for (Throwee throwee : throweeList) {
+			int x1 = (int)throwee.getX();
+			int y1 = (int)throwee.getY();
+			int x2 = x1 + throwee.getDiameter();
+			int y2 = y1 + throwee.getDiameter();
+			
+			if(throwee.getY() > CutterGame.GAMEHEIGHT  + throwee.getDiameter()){//객체가 본 크기보다 더 밑으로 내려가면 지운다
+				throweeList.remove(throwee);
+				break;
+			}
+			g.fillOval(x1, y1, throwee.getDiameter(), throwee.getDiameter());
+		}
+		System.out.println(throweeList.size());
+	}
+	private Runnable drawGraphics(Graphics2D g) {
 		while(true){//draw Throwee
 			g.clearRect(0, 0,CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT);
 			g.drawString("FPS: " + Math.random()*100, 0, 15);//be changed score
 			
 			thrower.run();
-			for (Throwee throwee : throweeList) {
-				int x1 = (int)throwee.getX();
-				int y1 = (int)throwee.getY();
-				int x2 = x1 + throwee.getDiameter();
-				int y2 = y1 + throwee.getDiameter();
-				
-				if(throwee.getY() > CutterGame.GAMEHEIGHT  + throwee.getDiameter()){//객체가 본 크기보다 더 밑으로 내려가면 지운다
-					throweeList.remove(throwee);
-					break;
-				}
-				
-				g.fillOval(x1, y1, throwee.getDiameter(), throwee.getDiameter());
-			}
-			System.out.println(throweeList.size());
+			foreachList(g);
 			
 			if(!bufferStrategy.contentsLost()) bufferStrategy.show();
 		}
@@ -116,20 +131,10 @@ public class GamePanel extends JPanel{
 			}
 			
 			@Override
-			public synchronized void mouseDragged(MouseEvent e) {
+			public void mouseDragged(MouseEvent e) {
 				mX = e.getX();
 				mY = e.getY();
-				for (Throwee throwee : throweeList) {
-					int x1 = (int)throwee.getX();
-					int y1 = (int)throwee.getY();
-					int x2 = x1 + throwee.getDiameter();
-					int y2 = y1 + throwee.getDiameter();
-					
-					if(x1 < mX && x2 > mX && y1 < mY && y2 > mY){
-						throweeList.remove(throwee);
-						break;
-					}
-				}
+				foreachList();
 				mY = 0;
 				mX = 0;
 			}
