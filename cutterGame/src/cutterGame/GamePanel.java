@@ -20,7 +20,6 @@ public class GamePanel extends JPanel{
 	private BufferStrategy bufferStrategy;
 	private LinkedList<Throwee> throweeList;
 	private Thread physicsCalculation;
-	private Thread drawGraphics;
 	private Canvas canvas;
 	private int mX, mY;
 	private int score = 0;
@@ -55,7 +54,15 @@ public class GamePanel extends JPanel{
 		
 		canvas.addMouseMotionListener(taskSetMouseMotionListener());//test code
 		
-		drawGraphics = new Thread(drawGraphics(g));
+		while(true){//draw Throwee
+			g.clearRect(0, 0,CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT);
+			g.drawString("SCORE : " + score, 0, 15);//be changed score
+			
+			thrower.run();
+			foreachList(g);
+			
+			if(!bufferStrategy.contentsLost()) bufferStrategy.show();
+		}
 		
 	}
 	private synchronized void foreachList(){
@@ -86,17 +93,6 @@ public class GamePanel extends JPanel{
 			g.fillOval(x1, y1, throwee.getDiameter(), throwee.getDiameter());
 		}
 		System.out.println(throweeList.size());
-	}
-	private Runnable drawGraphics(Graphics2D g) {
-		while(true){//draw Throwee
-			g.clearRect(0, 0,CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT);
-			g.drawString("SCORE : " + score, 0, 15);//be changed score
-			
-			thrower.run();
-			foreachList(g);
-			
-			if(!bufferStrategy.contentsLost()) bufferStrategy.show();
-		}
 	}
 	
 	private Runnable taskSetkRunnable(){
