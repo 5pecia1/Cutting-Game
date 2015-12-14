@@ -63,27 +63,25 @@ public class GamePanel extends JPanel{
 			g.drawString("FPS: " + Math.random()*100, 0, 15);//be changed score
 			
 			thrower.run();
-			throweeRepeatDraw(g);
+			for (Throwee throwee : throweeList) {
+				int x1 = (int)throwee.getX();
+				int y1 = (int)throwee.getY();
+				int x2 = x1 + throwee.getDiameter();
+				int y2 = y1 + throwee.getDiameter();
+				
+				if(throwee.getY() > CutterGame.GAMEHEIGHT  + throwee.getDiameter()){//객체가 본 크기보다 더 밑으로 내려가면 지운다
+					throweeList.remove(throwee);
+					break;
+				}
+				
+				g.fillOval(x1, y1, throwee.getDiameter(), throwee.getDiameter());
+			}
+			System.out.println(throweeList.size());
+			
 			if(!bufferStrategy.contentsLost()) bufferStrategy.show();
 		}
 	}
-	private void throweeRepeatDraw(Graphics2D g){
-		for (Throwee throwee : throweeList) {
-			int x1 = (int)throwee.getX();
-			int y1 = (int)throwee.getY();
-			int x2 = x1 + throwee.getDiameter();
-			int y2 = y1 + throwee.getDiameter();
-			
-			if(throwee.getY() > CutterGame.GAMEHEIGHT  + throwee.getDiameter()){//객체가 본 크기보다 더 밑으로 내려가면 지운다
-				throweeList.remove(throwee);
-				break;
-			}
-			
-			g.fillOval(x1, y1, throwee.getDiameter(), throwee.getDiameter());
-		}
-		System.out.println(throweeList.size());
-		
-	}
+	
 	private Runnable taskSetkRunnable(){
 		
 		return ()->{
