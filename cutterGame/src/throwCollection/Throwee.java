@@ -1,11 +1,12 @@
 package throwCollection;
 
 public abstract class Throwee {
+	private final double firstVx = 0.2, firstVy = 0.8;
 	private double x;
 	private double y;
 	
-	private double Vx;
-	private double Vy;
+	private double Vx;//x가속도
+	private double Vy;//y가속도
 	
 	private int diameter;
 	
@@ -14,13 +15,22 @@ public abstract class Throwee {
 		this.setY(y);
 		this.diameter = diameter;
 		
-		setVx(0.2);
-		setVy(0);
+		changeLocation();
 	}
 	
 	public void changeLocation(){
-		x = (int)(Math.random() * (x - diameter)); // 객체가 생겨날 위치는 0부터 (게임가로 - 지름) 사이
-		y = y - diameter;//객체가 생겨날 위치는 게임 하단 안보이는 부분부터.
+		int width = (int)x;
+		x = (int)(Math.random() * (width - diameter)); // 객체가 생겨날 위치는 0부터 (게임가로 - 지름) 사이
+		y = y;//객체가 생겨날 위치는 게임 하단 안보이는 부분부터.
+		
+		if(x < width / 2){//왼쪽에서 생기면 오른쪽으로 움직임
+			setVx(firstVx);
+		}
+		else {//오른쪽에서 생기면 왼쪽으로 움직임
+			setVx(-firstVx);
+		}
+		setVy(-firstVy);
+		
 	}
 
 	public double getX() {

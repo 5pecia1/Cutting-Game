@@ -11,7 +11,7 @@ public class Thrower {
 	public final static int HARD = 80; 
 	
 	private final int numberOfThrowee;
-	private final int randomSize = 1000;
+	private final int randomSize = 100000;
 	private ArrayList<CuttableObject> cuttableList;//자를 수 있는 폭탄들
 	private LinkedList<Throwee> throweeList;
 	private int seed;
@@ -27,13 +27,13 @@ public class Thrower {
 	}
 
 	public void run() {
-		int decideThrow = (int)(Math.random() * randomSize +1);
+		int decideThrow = (int)(Math.random() * randomSize +1);//던지는 것이 나올 확률
 		
 		if(decideThrow < seed){
 			int decideThrowee = (int)(Math.random()*numberOfThrowee);
 			
 			if(decideThrowee < cuttableList.size()){//자를 수 있는 폭탄
-				throweeList.add(cuttableList.get(decideThrow));
+				throweeList.add(cuttableList.get(decideThrowee));
 				cuttableList.set(decideThrowee,cuttableList.get(decideThrowee).getClone());//cuttable에서 현재 나간 객체를 빼고 새로 넣는다.
 				cuttableList.get(decideThrowee).changeLocation();//새로 넣은 객체의 위치를 바꾼다.
 			}

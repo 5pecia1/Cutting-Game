@@ -7,6 +7,8 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferStrategy;
+import java.nio.channels.Pipe.SinkChannel;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import javax.swing.JPanel;
@@ -15,7 +17,6 @@ import throwCollection.Throwee;
 import throwCollection.Thrower;
 
 public class GamePanel extends JPanel{
-	private int gameWidth, gameHeight;
 	private BufferStrategy bufferStrategy;
 	private LinkedList<Throwee> throweeList;
 	private Thread physicsCalculation;
@@ -23,16 +24,14 @@ public class GamePanel extends JPanel{
 	private int mX, mY;
 	private Thrower thrower;
 	
-	public GamePanel(int gameWidth, int gameHeight){
+	public GamePanel(){
 		mX = 0;
 		mY = 0;
-		this.gameWidth = gameWidth;
-		this.gameHeight = gameHeight;
 		
 		canvas = new Canvas();
 		
 		canvas.setBackground(Color.white);
-		canvas.setSize(this.gameWidth,this.gameHeight);
+		canvas.setSize(CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT);
 		
 		this.add(canvas);
 	}
@@ -53,33 +52,34 @@ public class GamePanel extends JPanel{
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
 		canvas.addMouseMotionListener(taskSetMouseMotionListener());//test code
-		thrower.run();
 		
 		while(true){//draw Throwee
-			g.clearRect(0, 0, gameWidth, getHeight());
+			g.clearRect(0, 0,CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT);
 			g.drawString("FPS: " + Math.random()*100, 0, 15);//be changed score
 			
-			for (Throwee throwee : throweeList) {
-				int x1 = (int)throwee.getX();
-				int y1 = (int)throwee.getY();
-				int x2 = x1 + 15;
-				int y2 = y1 + 15;
-				
-				if(x1 < mX && x2 > mX && y1 < mY && y2 > mY){
-					throweeList.remove(throwee);
-					break;
-				}
-				
-				g.fillOval(x1, y1, 15, 15); //test code
-				System.out.println("x1 : " + x1 + " y1 : " + y1);
-				System.out.println("mX : " + mX + " mY : " + mY);
-			}
-			
+			thrower.run();
+			throweeRepeatDraw(g);
 			if(!bufferStrategy.contentsLost()) bufferStrategy.show();
 		}
 		
 	}
-	
+	private synchronized void throweeRepeatDraw(Graphics2D g){
+		for (Throwee throwee : throweeList) {
+			int x1 = (int)throwee.getX();
+			int y1 = (int)throwee.getY();
+			int x2 = x1 + throwee.getDiameter();
+			int y2 = y1 + throwee.getDiameter();
+			
+			if(throwee.getY() > CutterGame.GAMEHEIGHT  + throwee.getDiameter()){//객체가 본 크기보다 더 밑으로 내려가면 지운다
+				throweeList.remove(throwee);
+				break;
+			}
+			
+			g.fillOval(x1, y1, throwee.getDiameter(), throwee.getDiameter());
+		}
+		System.out.println(throweeList.size());
+		
+	}
 	private Runnable taskSetkRunnable(){
 		
 		return ()->{
@@ -93,18 +93,6 @@ public class GamePanel extends JPanel{
 					
 					throwee.setX(throwee.getX() + throwee.getVx());
 					
-					if(throwee.getX() < 0){
-						throwee.setX(0+15);
-						throwee.setVx(throwee.getVx() * -0.8);
-					}
-					if(throwee.getX() + 15 > gameWidth){
-						throwee.setX(gameWidth - 15);
-						throwee.setVx(throwee.getVx() * -0.8);
-					}
-					if(throwee.getY() + 15 > gameHeight){
-						throwee.setY(gameHeight -15);
-						throwee.setVy(throwee.getVy() * -0.8);
-					}
 				}
 				
 				try {
@@ -126,9 +114,22 @@ public class GamePanel extends JPanel{
 			}
 			
 			@Override
-			public void mouseDragged(MouseEvent e) {
+			public synchronized void mouseDragged(MouseEvent e) {
 				mX = e.getX();
 				mY = e.getY();
+				for (Throwee throwee : throweeList) {
+					int x1 = (int)throwee.getX();
+					int y1 = (int)throwee.getY();
+					int x2 = x1 + throwee.getDiameter();
+					int y2 = y1 + throwee.getDiameter();
+					
+					if(x1 < mX && x2 > mX && y1 < mY && y2 > mY){
+						throweeList.remove(throwee);
+						break;
+					}
+				}
+				mY = 0;
+				mX = 0;
 			}
 		};
 		
