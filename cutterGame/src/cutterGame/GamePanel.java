@@ -23,15 +23,13 @@ public class GamePanel extends JPanel{
 	private Thread physicsCalculation;
 	private Canvas canvas;
 	private int mX, mY;
-	private int score = 0;
+	private int score;
 	private Thrower thrower;
 	
 	private boolean progressGame;
 	
 	public GamePanel(CutterGame cutterGame){
 		this.cutterGame = cutterGame;
-		mX = 0;
-		mY = 0;
 		
 		canvas = new Canvas();
 		
@@ -41,6 +39,9 @@ public class GamePanel extends JPanel{
 		this.add(canvas);
 	}
 	public void start(){
+		score = 0;
+		mX = 0;
+		mY = 0;
 		progressGame = true;
 		throweeList = new LinkedList<>();
 		canvas.createBufferStrategy(2);//visible 이전에 하면 안됨
@@ -70,8 +71,10 @@ public class GamePanel extends JPanel{
 		}
 		if(!bufferStrategy.contentsLost()) bufferStrategy.show();
 		
+		cutterGame.setEndCardLayout(score);// 넘어감
+		
 	}
-	private synchronized void foreachList(){
+	private synchronized void foreachList(){//점수 계산
 		for (Throwee throwee : throweeList) {
 			int x1 = (int)throwee.getX();
 			int y1 = (int)throwee.getY();
@@ -79,7 +82,7 @@ public class GamePanel extends JPanel{
 			int y2 = y1 + throwee.getDiameter();
 			
 			if(x1 < mX && x2 > mX && y1 < mY && y2 > mY){
-				if(throwee.getScore() == -1){
+				if(throwee.getScore() == -1){// game end~
 					progressGame = false;
 					throweeList.remove(throwee);
 					break;
@@ -90,7 +93,7 @@ public class GamePanel extends JPanel{
 			}
 		}
 	}
-	private synchronized void foreachList(Graphics2D g){
+	private synchronized void foreachList(Graphics2D g){//그림 계산
 		for (Throwee throwee : throweeList) {
 			int x1 = (int)throwee.getX();
 			int y1 = (int)throwee.getY();
@@ -109,7 +112,7 @@ public class GamePanel extends JPanel{
 	private Runnable taskSetkRunnable(){
 		
 		return ()->{
-			while(true){//move Throwee location
+			while(progressGame){//move Throwee location
 				for (Throwee throwee : throweeList) {
 					throwee.setVx(throwee.getVx() - throwee.getVx() * 0.0003);
 					throwee.setVy(throwee.getVy() - throwee.getVy() * 0.0003);

@@ -1,21 +1,17 @@
 package cutterGame;
 
 import java.awt.CardLayout;
-import java.util.Map;
-import java.util.Set;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class CutterGame {
 	public static final int GAMEWIDTH = 500, GAMEHEIGHT = 350;
 	
 	private JFrame mainFrame;
 	private CardLayout cardLayout ;
-	private JPanel startPanel, endPanel;
+	private StartPanel startPanel;
+	private EndPanel endPanel;
 	private GamePanel gamePanel;
-	
-
 	
 	public CutterGame(){
 		cardLayout = new CardLayout();
@@ -24,9 +20,7 @@ public class CutterGame {
 		
 		startPanel = new StartPanel(this);
 		gamePanel = new GamePanel(this);
-		endPanel = new JPanel(); // wait...
-		
-//		endPanel.add
+		endPanel = new EndPanel(this); 
 		
 		mainFrame.add(startPanel,"start");
 		mainFrame.add(gamePanel,"game");
@@ -44,7 +38,7 @@ public class CutterGame {
 	}
 	
 	public void setStartCardLayout(){
-		new Thread(() -> cardLayout.show(mainFrame.getContentPane(),"start"));
+		new Thread(() -> cardLayout.show(mainFrame.getContentPane(),"start")).start();
 	}
 	public void setGameCardLayout(){
 		new Thread(() -> {
@@ -52,10 +46,14 @@ public class CutterGame {
 			gamePanel.start();
 		}).start();	
 	}
-	public void setEndCardLayout(){
-		new Thread(() -> {
+	public void setEndCardLayout(int score){
+		new Thread(() ->{
 			cardLayout.show(mainFrame.getContentPane(),"end");
-		});
+			endPanel.run(score);
+		}).start();
+	}
+	public void exitGame(){
+		mainFrame.setVisible(false);
 	}
 	
 }
