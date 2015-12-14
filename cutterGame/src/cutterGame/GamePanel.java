@@ -17,6 +17,7 @@ import throwCollection.Throwee;
 import throwCollection.Thrower;
 
 public class GamePanel extends JPanel{
+	private CutterGame cutterGame;
 	private BufferStrategy bufferStrategy;
 	private LinkedList<Throwee> throweeList;
 	private Thread physicsCalculation;
@@ -27,7 +28,8 @@ public class GamePanel extends JPanel{
 	
 	private boolean progressGame;
 	
-	public GamePanel(){
+	public GamePanel(CutterGame cutterGame){
+		this.cutterGame = cutterGame;
 		mX = 0;
 		mY = 0;
 		
