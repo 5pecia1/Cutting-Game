@@ -25,6 +25,8 @@ public class GamePanel extends JPanel{
 	private int score = 0;
 	private Thrower thrower;
 	
+	private boolean progressGame;
+	
 	public GamePanel(){
 		mX = 0;
 		mY = 0;
@@ -37,6 +39,7 @@ public class GamePanel extends JPanel{
 		this.add(canvas);
 	}
 	public void start(){
+		progressGame = true;
 		throweeList = new LinkedList<>();
 		canvas.createBufferStrategy(2);//visible 이전에 하면 안됨
 		bufferStrategy = canvas.getBufferStrategy();
@@ -54,15 +57,16 @@ public class GamePanel extends JPanel{
 		
 		canvas.addMouseMotionListener(taskSetMouseMotionListener());//test code
 		
-		while(true){//draw Throwee
+		while(progressGame){//draw Throwee
 			g.clearRect(0, 0,CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT);
-			g.drawString("SCORE : " + score, 0, 15);//be changed score
+			g.drawString("SCORE : " + score, 0, 15);
 			
 			thrower.run();
 			foreachList(g);
 			
 			if(!bufferStrategy.contentsLost()) bufferStrategy.show();
 		}
+		if(!bufferStrategy.contentsLost()) bufferStrategy.show();
 		
 	}
 	private synchronized void foreachList(){
@@ -73,6 +77,11 @@ public class GamePanel extends JPanel{
 			int y2 = y1 + throwee.getDiameter();
 			
 			if(x1 < mX && x2 > mX && y1 < mY && y2 > mY){
+				if(throwee.getScore() == -1){
+					progressGame = false;
+					throweeList.remove(throwee);
+					break;
+				}
 				score += throwee.getScore();
 				throweeList.remove(throwee);
 				break;

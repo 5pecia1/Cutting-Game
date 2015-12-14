@@ -20,7 +20,7 @@ public class CutterGame {
 		mainFrame= new JFrame("CutterGame");
 		mainFrame.setLayout(cardLayout);//게임을 시작, 게임, 끝 세 부분으로 나눈다.
 		
-		startPanel = new JPanel();//sung bin
+		startPanel = new StartPanal();
 		gamePanel = new GamePanel();
 		endPanel = new JPanel(); // wait...
 		
