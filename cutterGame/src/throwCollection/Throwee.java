@@ -1,7 +1,9 @@
 package throwCollection;
 
+import cutterGame.CutterGame;
+
 public abstract class Throwee {
-	private final double firstVx = 0.2, firstVy = -0.8;
+	private final double firstVx = 0.2, firstVy = -0.6;
 	private double x;
 	private double y;
 	
@@ -12,7 +14,6 @@ public abstract class Throwee {
 	private int score;
 	
 	public Throwee(int x, int y, int diameter, int score){
-		this.setX(x);
 		this.setY(y);
 		this.diameter = diameter;
 		this.score = score;
@@ -20,10 +21,9 @@ public abstract class Throwee {
 	}
 	
 	public void changeLocation(){
-		int width = (int)x;
-		x = (int)(Math.random() * (width - diameter)); // 객체가 생겨날 위치는 0부터 (게임가로 - 지름) 사이
+		x = (int)(Math.random() * (CutterGame.GAMEWIDTH - diameter)); // 객체가 생겨날 위치는 0부터 (게임가로 - 지름) 사이
 		
-		if(x < width / 2){//왼쪽에서 생기면 오른쪽으로 움직임
+		if(x < CutterGame.GAMEWIDTH / 2){//왼쪽에서 생기면 오른쪽으로 움직임
 			setVx(firstVx);
 		}
 		else {//오른쪽에서 생기면 왼쪽으로 움직임
