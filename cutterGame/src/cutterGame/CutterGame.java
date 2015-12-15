@@ -54,6 +54,7 @@ public class CutterGame {
 	}
 	public void exitGame(){
 		mainFrame.setVisible(false);
+		mainFrame.dispose();
 	}
 	
 }

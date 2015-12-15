@@ -3,7 +3,7 @@ package throwCollection;
 import cutterGame.CutterGame;
 
 public abstract class Throwee {
-	private final double firstVx = 0.2, firstVy = -0.6;
+	private final double firstVx = 0.2, firstVy = -0.7;
 	private double x;
 	private double y;
 	
