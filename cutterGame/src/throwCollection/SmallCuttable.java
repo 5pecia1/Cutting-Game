@@ -1,11 +1,14 @@
 package throwCollection;
 
+import java.awt.Color;
+
 public class SmallCuttable extends CuttableObject{
 	private final static int diameter = 15;
 	private final static int score = 50;
+	private final static Color color = Color.green;
 	
 	public SmallCuttable(int x, int y) {
-		super(x, y, diameter, score);
+		super(x, y, diameter, score,color);
 	}
 
 	@Override

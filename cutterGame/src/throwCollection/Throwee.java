@@ -1,5 +1,7 @@
 package throwCollection;
 
+import java.awt.Color;
+
 import cutterGame.CutterGame;
 
 public abstract class Throwee {
@@ -12,11 +14,13 @@ public abstract class Throwee {
 	
 	private int diameter;
 	private int score;
+	private Color color;
 	
-	public Throwee(int x, int y, int diameter, int score){
+	public Throwee(int x, int y, int diameter, int score, Color color){
 		this.setY(y);
 		this.diameter = diameter;
 		this.score = score;
+		this.setColor(color);
 		changeLocation();
 	}
 	
@@ -71,6 +75,14 @@ public abstract class Throwee {
 
 	public int getScore() {
 		return score;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
 	}
 	
 	

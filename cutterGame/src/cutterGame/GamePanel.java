@@ -62,6 +62,7 @@ public class GamePanel extends JPanel{
 		
 		while(progressGame){//draw Throwee
 			g.clearRect(0, 0,CutterGame.GAMEWIDTH, CutterGame.GAMEHEIGHT);
+			g.setColor(Color.black);
 			g.drawString("SCORE : " + score, 0, 15);
 			
 			thrower.run();
@@ -104,6 +105,7 @@ public class GamePanel extends JPanel{
 				throweeList.remove(throwee);
 				break;
 			}
+			g.setColor(throwee.getColor());
 			g.fillOval(x1, y1, throwee.getDiameter(), throwee.getDiameter());
 		}
 		System.out.println(throweeList.size());
