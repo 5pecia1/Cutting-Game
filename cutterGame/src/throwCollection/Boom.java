@@ -11,7 +11,7 @@ public class Boom extends Throwee{
 
 	public Boom(int x, int y) {
 		super(x, y, diameter, score, color1);
-		new Thread(() ->{
+		Thread thread = new Thread(() ->{
 			while(true){
 				try {
 					Thread.sleep(sleepTime);
@@ -25,7 +25,9 @@ public class Boom extends Throwee{
 					setColor(color1);
 			}
 
-		}).start();
+		});
+		thread.setDaemon(true);
+		thread.start();
 	}
 	
 }

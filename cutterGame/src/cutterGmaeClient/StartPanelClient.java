@@ -22,7 +22,7 @@ public class StartPanelClient extends StartPanel {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(!((CutterGameClient)cutterGame).getName().equals("")){//namefield가 비어있지 않다면
+		if(!nameField.getText().equals("")){//namefield가 비어있지 않다면
 			((CutterGameClient)cutterGame).setName(nameField.getText());
 			cutterGame.setGameCardLayout();
 		}

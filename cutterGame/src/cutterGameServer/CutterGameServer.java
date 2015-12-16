@@ -40,6 +40,7 @@ public class CutterGameServer {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+			System.out.println("error");
 		}
 
 	}
@@ -49,9 +50,10 @@ public class CutterGameServer {
 		//TreeMap에 동시에 여러 입출력이 일어나지 않게 한다.
 		rankTree.put(score, new RankInformation(name, System.currentTimeMillis()));
 		
+		
 		NavigableMap<Integer, RankInformation> descendingMap = rankTree.descendingMap();
-		descendingMap = descendingMap.descendingMap();//오름차순으로 정렬
 		return descendingMap.entrySet();
+		
 	}
 
 	private Runnable multiSocket (Socket socket){
@@ -60,29 +62,42 @@ public class CutterGameServer {
 				BufferedReader si = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				PrintWriter so = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 				while(true){
-					String line = si.readLine();
+					String line = si.readLine();//name에 |이 들어갈 수 있으므로 split하지 않는다.
 					int splitLocation = line.indexOf('|');
-
+ 
 					Integer score = Integer.parseInt(line.substring(0, splitLocation));
-					String name = line.substring(splitLocation);
+					String name = line.substring(splitLocation+1);
 
 					System.out.println("[" + name +"]의 점수 " + score);
 					
 					
 					Set<Map.Entry<Integer, RankInformation>> descendingEntrySet = rankTreeInputNavigableSetOutput(score, name);
-					
+					int rank = 0;
 					for (Map.Entry<Integer, RankInformation> entry : descendingEntrySet) {
 						//정렬된 값을 받아 소켓 프린트
-						so.println(entry.getKey() + "|" + entry.getValue());
+						rank++;
+						so.println(rank + "|" + entry.getKey() + "|" + entry.getValue());//랭크, 점수, 날짜, 이름
 						so.flush();
 					}
-					so.println(0);//end값 전송
+					so.println("0");//end값 전송
+					so.flush();
 				}
 			} catch (IOException e) {
 				System.out.println("클라이언트 연결이 해제되었습니다 : " + socket);
 				number--;
 				System.out.println("현재 접속중인 클라이언트 수 : " + number);
-				e.printStackTrace();
+			}catch(NullPointerException e){
+				System.out.println("클라이언트 연결이 해제되었습니다 : " + socket);
+				number--;
+				System.out.println("현재 접속중인 클라이언트 수 : " + number);
+				
+			}finally{
+				try {
+					socket.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 		};

@@ -3,6 +3,8 @@ package cutterGmaeClient;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JFrame;
 
@@ -11,7 +13,7 @@ import cutterGame.CutterGame;
 public class CutterGameClient extends CutterGame{
 	private String name ="";
 	private Socket socket = null;
-	
+
 	@Override
 	public void start() {
 		try {
@@ -44,10 +46,22 @@ public class CutterGameClient extends CutterGame{
 	}
 
 	public void setName(String name) {
+		System.out.println(name);
 		this.name = name;
 	}
 
 	public Socket getSocket() {
 		return socket;
+	}
+	@Override
+	public void exitGame(){
+		try {
+			socket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mainFrame.setVisible(false);
+		mainFrame.dispose();
 	}
 }

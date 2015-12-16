@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class EndPanel extends JPanel implements ActionListener{
-	private CutterGame cutterGame;
+	protected CutterGame cutterGame;
 	private JButton restartButton;
 	private JButton endButton;
 	private JLabel scoreLable;
