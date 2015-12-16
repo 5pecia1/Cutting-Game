@@ -54,6 +54,11 @@ public class GamePanel extends JPanel{
 		drawImage();
 	}
 	
+	protected void endStep() {
+		cutterGame.setEndCardLayout(score);// end로 넘어감
+		
+	}
+	
 	private void drawImage(){
 		Graphics2D g = (Graphics2D)bufferStrategy.getDrawGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -72,9 +77,9 @@ public class GamePanel extends JPanel{
 		}
 		if(!bufferStrategy.contentsLost()) bufferStrategy.show();
 		
-		cutterGame.setEndCardLayout(score);// 넘어감
-		
+		endStep();
 	}
+	
 	private synchronized void foreachList(){//점수 계산
 		for (Throwee throwee : throweeList) {
 			int x1 = (int)throwee.getX();

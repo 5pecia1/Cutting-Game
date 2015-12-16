@@ -10,5 +10,9 @@ public class GamePanelClient extends GamePanel{
 		// TODO Auto-generated constructor stub
 	}
 
-
+	@Override
+	protected void endStep() {
+		super.endStep();
+		
+	}
 }

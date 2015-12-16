@@ -34,7 +34,7 @@ public class EndPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == restartButton){
-			System.out.println("RR");
+			System.out.println("RR");//test code
 			cutterGame.setGameCardLayout();
 		}
 		else if(e.getSource() == endButton){

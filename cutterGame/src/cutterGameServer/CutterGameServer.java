@@ -46,6 +46,7 @@ public class CutterGameServer {
 
 	private synchronized Set<Map.Entry<Integer, RankInformation>> rankTreeInputNavigableSetOutput(Integer score, String name){
 		//오름차순으로정렬된 tree 리턴
+		//TreeMap에 동시에 여러 입출력이 일어나지 않게 한다.
 		rankTree.put(score, new RankInformation(name, System.currentTimeMillis()));
 		
 		NavigableMap<Integer, RankInformation> descendingMap = rankTree.descendingMap();
@@ -73,6 +74,7 @@ public class CutterGameServer {
 					for (Map.Entry<Integer, RankInformation> entry : descendingEntrySet) {
 						//정렬된 값을 받아 소켓 프린트
 						so.println(entry.getKey() + "|" + entry.getValue());
+						so.flush();
 					}
 					so.println(0);//end값 전송
 				}

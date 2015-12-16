@@ -1,13 +1,90 @@
 package cutterGmaeClient;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 import cutterGame.CutterGame;
 import cutterGame.EndPanel;
 
-public class EndPanelClient extends EndPanel {
+public class EndPanelClient extends EndPanel { 
+	private static String[] article = {"순위", "날짜", "이름"};
+	private JTable rankTable = null;
+	private DefaultTableModel tableModel =null;
+	private PrintWriter so;
+	private BufferedReader si;
+	private String name = "";
 
 	public EndPanelClient(CutterGame cutterGame) {
 		super(cutterGame);
-		// TODO Auto-generated constructor stub
+		rankTable = new JTable(new DefaultTableModel(new Object[][]{},article));
+		tableModel = (DefaultTableModel)rankTable.getModel();
+
+		
+		name = ((CutterGameClient)cutterGame).getName();
+		try {
+			Socket socket = ((CutterGameClient)cutterGame).getSocket();
+
+			so = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+			si = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		super.add(new JScrollPane(rankTable));
 	}
 
+	@Override
+	public void run(int score) {
+		super.run(score);
+		new Thread(()->{//시간이 오래 걸릴 수 있으므로 Thread 사용
+			so.println(score+ "|" + name);
+			so.flush();
+
+			rankInput();
+		});
+	}
+
+	private void rankInput(){
+		String line = "";
+
+		for (int i = tableModel.getRowCount(); i > 0; i--) {//table 비움
+		      tableModel.removeRow(0);
+		}
+		
+		try {
+			while(true){
+				line = si.readLine();
+				if(line.equals("0")) break;
+				tableModel.addRow(getTableModelRowStringArray(line));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	private String[] getTableModelRowStringArray(String line){
+		String[] split = line.split("|");
+		
+		if(split.length > 3){//3만큼 주는지 확인
+			
+			for (int i = 3; i < split.length; i++) {
+				split[2] = split[2].concat(split[i]);
+			}
+		}
+		String[] finalSplitArray = new String[3];
+
+		for (int i = 0; i < 3; i++) {
+			finalSplitArray[i] = split[i];
+		}
+		return finalSplitArray;
+	}
 }

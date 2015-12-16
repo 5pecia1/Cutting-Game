@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class StartPanel extends JPanel implements ActionListener{
-	private CutterGame cutterGame;
+	protected CutterGame cutterGame;
 	private JButton startButton;
 	
 	public StartPanel(CutterGame cutterGame) {
