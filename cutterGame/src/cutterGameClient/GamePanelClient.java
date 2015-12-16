@@ -1,4 +1,4 @@
-package cutterGmaeClient;
+package cutterGameClient;
 
 import cutterGame.CutterGame;
 import cutterGame.GamePanel;

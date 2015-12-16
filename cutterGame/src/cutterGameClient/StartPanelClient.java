@@ -1,4 +1,4 @@
-package cutterGmaeClient;
+package cutterGameClient;
 
 import java.awt.event.ActionEvent;
 
