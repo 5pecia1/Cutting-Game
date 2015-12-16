@@ -3,8 +3,9 @@ package cutterGameServer;
 public class CutterGameServerDriver {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		CutterGameServer cutterGameServer = new CutterGameServer();
+		
+		cutterGameServer.start();
 	}
 
 }

@@ -49,7 +49,7 @@ public class GamePanel extends JPanel{
 		
 		physicsCalculation = new Thread(taskSetkRunnable());
 		physicsCalculation.start();
-		thrower = new Thrower(Thrower.NORMAL, throweeList);
+		thrower = new Thrower(Thrower.HARD, throweeList);
 		
 		drawImage();
 	}

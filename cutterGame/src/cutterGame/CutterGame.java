@@ -7,17 +7,21 @@ import javax.swing.JFrame;
 public class CutterGame {
 	public static final int GAMEWIDTH = 500, GAMEHEIGHT = 350;
 	
-	private JFrame mainFrame;
 	private CardLayout cardLayout ;
-	private StartPanel startPanel;
-	private EndPanel endPanel;
-	private GamePanel gamePanel;
+	
+	protected JFrame mainFrame;
+	protected StartPanel startPanel;
+	protected EndPanel endPanel;
+	protected GamePanel gamePanel;
 	
 	public CutterGame(){
 		cardLayout = new CardLayout();
 		mainFrame= new JFrame("CutterGame");
 		mainFrame.setLayout(cardLayout);//게임을 시작, 게임, 끝 세 부분으로 나눈다.
-		
+	}
+	
+	
+	public void start() {
 		startPanel = new StartPanel(this);
 		gamePanel = new GamePanel(this);
 		endPanel = new EndPanel(this); 
@@ -26,14 +30,12 @@ public class CutterGame {
 		mainFrame.add(gamePanel,"game");
 		mainFrame.add(endPanel,"end");
 		
-		
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setLocationRelativeTo(null);
 		mainFrame.pack();
-	
+		
 		mainFrame.setVisible(true);
-	}
-	public void start() {
+		
 		setStartCardLayout();		
 	}
 	
