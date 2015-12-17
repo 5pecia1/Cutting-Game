@@ -16,7 +16,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class CutterGameServer {
-	private TreeMap<Integer, RankInformation> rankTree;
+	private TreeMap<Integer, RankInformation> rankTree;//같은 key 값을 동시에 저장하지 못함 DB 사용시 해결해야함.
 	private int number = 0;
 	
 	public CutterGameServer() {
