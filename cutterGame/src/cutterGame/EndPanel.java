@@ -18,7 +18,6 @@ public class EndPanel extends JPanel implements ActionListener{
 		restartButton = new JButton("Restart?");
 		endButton = new JButton("End Game");
 		scoreLable = new JLabel("0");
-		
 		this.add(scoreLable);
 		this.add(restartButton);
 		this.add(endButton);
