@@ -26,7 +26,7 @@ public class StartPanel extends JPanel implements ActionListener{
 		
 		
 		gamename.setForeground(Color.ORANGE);//;
-		gamename2.setForeground(Color.ORANGE);//;
+		gamename2.setForeground(Color.RED);//;
 		
 		gamename.setFont(gamename.getFont().deriveFont(50.0f));//;
 		gamename2.setFont(gamename2.getFont().deriveFont(50.0f));//;
@@ -35,7 +35,8 @@ public class StartPanel extends JPanel implements ActionListener{
 		gamename2.setBounds(CutterGame.GAMEWIDTH, 0, 200, 100);//;
 		
 		startButton.setFont(gamename.getFont().deriveFont(20.0f));//;
-		startButton.setBounds(280, 200, 100, 40);
+		
+		startButton.setBounds(200, 200, 100, 40);
 		
 		this.add(gamename);
 		this.add(gamename2);
@@ -43,17 +44,17 @@ public class StartPanel extends JPanel implements ActionListener{
 		this.add(startButton);
 		
 		Thread thread = new Thread(() ->{
-			for(int x = 0; x < 190; x+=30) {//;
-				for(int y = 0; y < 40; y+=10){//;
-					if ((x <= 180)&&(y < 80)) {
+			for(int x = 0; x < 190; x+=20) {//;
+				for(int y = 0; y < 30; y+=10){//;
+					if ((x <= 130)&&(y < 35)) {
 						gamename.setBounds(x, y, 200, 100);
 					}
-					if ((x <= 180)&&(y < 180)) {
-						gamename2.setBounds(CutterGame.GAMEWIDTH - x, 80-y, 200, 80);//;
+					if ((x <= 120)&&(y < 35)) {
+						gamename2.setBounds(330 - x, 80-y, 200, 80);//;
 					}
 					
 					try{
-						Thread.sleep(55); //;
+						Thread.sleep(60); //;
 					}
 					catch(InterruptedException ignore){}
 				}
