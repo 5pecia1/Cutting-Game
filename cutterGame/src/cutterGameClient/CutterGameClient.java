@@ -7,21 +7,25 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import cutterGame.CutterGame;
 
 public class CutterGameClient extends CutterGame{
+	private String hostIP = "localhost";
 	private String name ="";
 	private Socket socket = null;
 
 	@Override
 	public void start() {
 		try {
-			socket = new Socket("localhost", 7777);
-		} catch (UnknownHostException e) {//수정 요망
-			e.printStackTrace();
+			socket = new Socket(hostIP, 7777);
+		} catch (UnknownHostException e) {
+			JOptionPane.showMessageDialog(null,"주소 잘못 됨");
 		} catch (IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "죄송합니다. 아직 서버가 열리지 않았습니다...\n "
+					+ "so0o0o0o0o0o0o0o0o0o0o0ol@gmail.com으로 연락주세요");
+			System.exit(0);
 		}
 		
 		startPanel = new StartPanelClient(this);
@@ -58,7 +62,6 @@ public class CutterGameClient extends CutterGame{
 		try {
 			socket.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		mainFrame.setVisible(false);
