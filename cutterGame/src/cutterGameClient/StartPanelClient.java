@@ -10,10 +10,13 @@ import cutterGame.StartPanel;
 
 public class StartPanelClient extends StartPanel {
 	private JTextField nameField = null;
+	
 
 	public StartPanelClient(CutterGame cutterGame) {
 		super(cutterGame);
 		nameField = new JTextField(20);
+		
+		nameField.setBounds(230, 150, 200, 30);
 
 
 		super.add(new JLabel("ID를 입력해 주세요"));

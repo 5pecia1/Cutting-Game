@@ -1,14 +1,13 @@
 package cutterGame;
 
-import java.awt.CardLayout;
+import java.awt.*;
 
 import javax.swing.JFrame;
 
 public class CutterGame {
 	public static final int GAMEWIDTH = 500, GAMEHEIGHT = 350;
 	
-	private CardLayout cardLayout ;
-	
+	private CardLayout cardLayout;
 	protected JFrame mainFrame;
 	protected StartPanel startPanel;
 	protected EndPanel endPanel;
@@ -22,9 +21,11 @@ public class CutterGame {
 	
 	
 	public void start() {
+		
 		startPanel = new StartPanel(this);
 		gamePanel = new GamePanel(this);
 		endPanel = new EndPanel(this); 
+		
 		
 		mainFrame.add(startPanel,"start");
 		mainFrame.add(gamePanel,"game");
@@ -35,6 +36,7 @@ public class CutterGame {
 		mainFrame.pack();
 		
 		mainFrame.setVisible(true);
+		
 		
 		setStartCardLayout();		
 	}
