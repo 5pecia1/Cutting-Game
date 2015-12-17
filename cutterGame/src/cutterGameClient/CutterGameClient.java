@@ -24,7 +24,7 @@ public class CutterGameClient extends CutterGame{
 			JOptionPane.showMessageDialog(null,"주소 잘못 됨");
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "죄송합니다. 아직 서버가 열리지 않았습니다...\n "
-					+ "so0o0o0o0o0o0o0o0o0o0o0ol@gmail.com으로 연락주세요");
+					+ "So0o0o0o0o0o0o0o0o0o0o0oL@gmail.com으로 연락주세요");
 			System.exit(0);
 		}
 		
