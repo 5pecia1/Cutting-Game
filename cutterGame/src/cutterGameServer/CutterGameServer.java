@@ -9,18 +9,18 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.NavigableMap;
+import java.util.NavigableSet;
 import java.util.Set;
-import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class CutterGameServer {
-	private TreeMap<Integer, RankInformation> rankTree;//같은 key 값을 동시에 저장하지 못함 DB 사용시 해결해야함.
+	private TreeSet<RankInformation> rankTree;//같은 key 값을 동시에 저장하지 못함 DB 사용시 해결해야함.
 	private int number = 0;
 	
 	public CutterGameServer() {
-		rankTree = new TreeMap<>();
+		rankTree = new TreeSet<>();
 	}
 
 	public void start() {
@@ -45,14 +45,13 @@ public class CutterGameServer {
 
 	}
 
-	private synchronized Set<Map.Entry<Integer, RankInformation>> rankTreeInputNavigableSetOutput(Integer score, String name){
+	private synchronized NavigableSet<RankInformation> rankTreeInputNavigableSetOutput(Integer score, String name){
 		//오름차순으로정렬된 tree 리턴
-		//TreeMap에 동시에 여러 입출력이 일어나지 않게 한다.
-		rankTree.put(score, new RankInformation(name, System.currentTimeMillis()));
+		//TreeSet에 동시에 여러 입출력이 일어나지 않게 한다.
+		rankTree.add(new RankInformation(score,name, System.currentTimeMillis()));
 		
-		
-		NavigableMap<Integer, RankInformation> descendingMap = rankTree.descendingMap();
-		return descendingMap.entrySet();
+		NavigableSet<RankInformation> descendingSet = rankTree.descendingSet();
+		return descendingSet;
 		
 	}
 
@@ -71,13 +70,13 @@ public class CutterGameServer {
 					System.out.println("[" + name +"]의 점수 " + score);
 					
 					
-					Set<Map.Entry<Integer, RankInformation>> descendingEntrySet = rankTreeInputNavigableSetOutput(score, name);
+					NavigableSet<RankInformation> descendingSet = rankTreeInputNavigableSetOutput(score, name);
+					
 					int rank = 0;
-					for (Map.Entry<Integer, RankInformation> entry : descendingEntrySet) {
-						//정렬된 값을 받아 소켓 프린트
+					for (RankInformation rankInformation : descendingSet) {
 						rank++;
-						so.println(rank + "|" + entry.getKey() + "|" + entry.getValue());//랭크, 점수, 날짜, 이름
-						so.flush();
+						so.println(rank + "|" + rankInformation);//랭크, 점수, 날짜, 이름
+						
 					}
 					so.println("0");//end값 전송
 					so.flush();
@@ -103,11 +102,13 @@ public class CutterGameServer {
 		};
 	}
 
-	class RankInformation{
+	class RankInformation implements Comparable<RankInformation>{
+		private int score;
 		private String name;
 		private Date date;
 
-		public RankInformation(String name, long date) {
+		public RankInformation(int score, String name, long date) {
+			this.score = score;
 			this.name = name;
 			this.date = new Date(date);
 		}
@@ -117,11 +118,19 @@ public class CutterGameServer {
 		public Date getDate() {
 			return date;
 		}
+		public int getScore(){
+			return score;
+		}
 		
 		public String toString(){
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss(E)");
 			
-			return  dateFormat.format(date) + "|" + name; 
+			return  score + "|" + dateFormat.format(date) + "|" + name; 
+		}
+		@Override
+		public int compareTo(RankInformation o) {//값 중복 허용한다.
+			if(score<=o.getScore()) return -1;
+			else return 1;
 		}
 	}
 
