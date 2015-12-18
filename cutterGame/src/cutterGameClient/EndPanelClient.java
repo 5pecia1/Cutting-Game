@@ -26,8 +26,6 @@ public class EndPanelClient extends EndPanel {
 		super(cutterGame);
 		rankTable = new JTable(new DefaultTableModel(new Object[][]{},article));		
 		tableModel = (DefaultTableModel)rankTable.getModel();
-		//TODO 크기 설정은 레이아웃 설정을 한 다음 적당히 조절 해야함.
-		//현재는 적당히 작은 크기
 		rankTable.setPreferredScrollableViewportSize(new Dimension(CutterGame.GAMEWIDTH-200, CutterGame.GAMEHEIGHT-200));
 
 
