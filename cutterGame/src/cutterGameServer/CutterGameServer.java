@@ -16,7 +16,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class CutterGameServer {
-	private TreeSet<RankInformation> rankTree;//같은 key 값을 동시에 저장하지 못함 DB 사용시 해결해야함.
+	private TreeSet<RankInformation> rankTree;
 	private int number = 0;
 	
 	public CutterGameServer() {
@@ -68,7 +68,6 @@ public class CutterGameServer {
 					String name = line.substring(splitLocation+1);
 
 					System.out.println("[" + name +"]의 점수 " + score);
-					
 					
 					NavigableSet<RankInformation> descendingSet = rankTreeInputNavigableSetOutput(score, name);
 					
