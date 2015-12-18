@@ -18,6 +18,7 @@ import java.util.TreeSet;
 public class CutterGameServer {
 	private TreeSet<RankInformation> rankTree;
 	private int number = 0;
+	private ServerSocket serverSocket;
 	
 	public CutterGameServer() {
 		rankTree = new TreeSet<>();
@@ -27,7 +28,7 @@ public class CutterGameServer {
 		System.out.println("서버가 시작되었습니다");
 
 		try {
-			ServerSocket serverSocket = new ServerSocket(7777);
+			serverSocket = new ServerSocket(7777);
 			System.out.println("Listening to prot 7777");
 			System.out.println();
 
