@@ -1,6 +1,5 @@
 package throwCollection;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.LinkedList;
 

@@ -7,8 +7,6 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferStrategy;
-import java.nio.channels.Pipe.SinkChannel;
-import java.util.Iterator;
 import java.util.LinkedList;
 
 import javax.swing.JPanel;
