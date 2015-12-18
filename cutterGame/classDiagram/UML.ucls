@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="cutterGame.GamePanel" project="cutterGame" 
     file="/cutterGame/src/cutterGame/GamePanel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="351" width="277" x="800" y="567"/>    
+    <position height="351" width="277" x="1450" y="320"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="throwCollection.Boom" project="cutterGame" 
     file="/cutterGame/src/throwCollection/Boom.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="100" x="969" y="1722"/>    
+    <position height="171" width="100" x="1526" y="1493"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="throwCollection.CuttableObject" project="cutterGame" 
     file="/cutterGame/src/throwCollection/CuttableObject.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="185" x="744" y="1722"/>    
+    <position height="99" width="185" x="1301" y="1493"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="throwCollection.SmallCuttable" project="cutterGame" 
     file="/cutterGame/src/throwCollection/SmallCuttable.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="149" x="838" y="1933"/>    
+    <position height="153" width="149" x="1206" y="1704"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="throwCollection.Throwee" project="cutterGame" 
     file="/cutterGame/src/throwCollection/Throwee.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="477" width="159" x="959" y="1205"/>    
+    <position height="477" width="159" x="1516" y="976"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="throwCollection.BigCuttable" project="cutterGame" 
     file="/cutterGame/src/throwCollection/BigCuttable.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="149" x="649" y="1933"/>    
+    <position height="153" width="149" x="1395" y="1704"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="cutterGame.CutterGame" project="cutterGame" 
     file="/cutterGame/src/cutterGame/CutterGame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="157" x="800" y="284"/>    
+    <position height="243" width="157" x="1216" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="cutterGame.CutterDriver" project="cutterGame" 
     file="/cutterGame/src/cutterGame/CutterDriver.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="610" y="37"/>    
+    <position height="99" width="113" x="41" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="throwCollection.Thrower" project="cutterGame" 
     file="/cutterGame/src/throwCollection/Thrower.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="194" x="744" y="958"/>    
+    <position height="207" width="194" x="1301" y="711"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="cutterGame.StartPanel" project="cutterGame" 
     file="/cutterGame/src/cutterGame/StartPanel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="194" x="997" y="37"/>    
+    <position height="153" width="194" x="982" y="320"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="cutterGame.EndPanel" project="cutterGame" 
     file="/cutterGame/src/cutterGame/EndPanel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="194" x="763" y="37"/>    
+    <position height="315" width="194" x="1216" y="320"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="cutterGameServer.CutterGameServer" project="cutterGame" 
     file="/cutterGame/src/cutterGameServer/CutterGameServer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="438" x="1231" y="37"/>    
+    <position height="171" width="413" x="194" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="cutterGameServer.CutterGameServerDriver" project="cutterGame" 
     file="/cutterGame/src/cutterGameServer/CutterGameServerDriver.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="164" x="239" y="37"/>    
+    <position height="99" width="164" x="814" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="cutterGameClient.EndPanelClient" project="cutterGame" 
     file="/cutterGame/src/cutterGameClient/EndPanelClient.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="246" x="514" y="284"/>    
+    <position height="225" width="246" x="1015" y="711"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="cutterGameClient.GamePanelClient" project="cutterGame" 
     file="/cutterGame/src/cutterGameClient/GamePanelClient.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="171" x="533" y="958"/>    
+    <position height="99" width="171" x="1556" y="711"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -138,7 +138,7 @@
   </class>  
   <class id="16" language="java" name="cutterGameClient.CutterGameClient" project="cutterGame" 
     file="/cutterGame/src/cutterGameClient/CutterGameClient.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="127" x="443" y="37"/>    
+    <position height="225" width="127" x="647" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -147,7 +147,7 @@
   </class>  
   <class id="17" language="java" name="cutterGameClient.StartPanelClient" project="cutterGame" 
     file="/cutterGame/src/cutterGameClient/StartPanelClient.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="194" x="997" y="284"/>    
+    <position height="117" width="194" x="781" y="711"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -156,7 +156,7 @@
   </class>  
   <class id="18" language="java" name="cutterGameClient.CutterGameClientDriver" project="cutterGame" 
     file="/cutterGame/src/cutterGameClient/CutterGameClientDriver.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="158" x="41" y="37"/>    
+    <position height="99" width="158" x="1018" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -165,7 +165,7 @@
   </class>  
   <class id="19" language="java" name="cutterGameServer.CutterGameServer.RankInformation" project="cutterGame" 
     file="/cutterGame/src/cutterGameServer/CutterGameServer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="162" x="1231" y="284"/>    
+    <position height="225" width="178" x="194" y="320"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -185,27 +185,33 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="23">    
-    <end type="SOURCE" refId="2"/>    
+    <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="5"/>  
   </generalization>  
   <association id="24">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="25" name="rankTree"/>      
-      <multiplicity id="26" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="27">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="28" name="startPanel">        
+    <bendpoint x="1310" y="976"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="25" name="cuttableList">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="29" minimum="0" maximum="1">        
+      <multiplicity id="26" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="27">    
+    <bendpoint x="1525" y="711"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="28" name="throweeList">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="30">    
@@ -220,108 +226,106 @@
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="33">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <association id="34">    
-    <bendpoint x="968" y="958"/>    
+  <association id="33">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="35" name="throweeList">        
+      <attribute id="34" name="thrower">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="36" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="37">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="38">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="39" name="cutterGame">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="40" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="41">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
-  <association id="42">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="43" name="thrower">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="44" minimum="0" maximum="1">        
+      <multiplicity id="35" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="45">    
+  <association id="36">    
     <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="46" name="throweeList">        
+      <attribute id="37" name="throweeList">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="47" minimum="0" maximum="2147483647">        
+      <multiplicity id="38" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="48">    
-    <bendpoint x="753" y="1205"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="49" name="cuttableList">        
+  <generalization id="39">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <generalization id="40">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="41">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="42" name="rankTree">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="50" minimum="0" maximum="2147483647">        
+      <multiplicity id="43" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="51">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <generalization id="52">    
+  <association id="44">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="45" name="cutterGame">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="47">    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="11"/>  
   </generalization>  
-  <association id="53">    
+  <generalization id="48">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="49">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="54" name="endPanel">        
+      <attribute id="50" name="startPanel">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="55" minimum="0" maximum="1">        
+      <multiplicity id="51" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="52">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="19"/>  
+  </nesting>  
+  <generalization id="53">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="54">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="55">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="56" name="endPanel">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="57" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="56">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <nesting id="57">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="19"/>  
-  </nesting>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
